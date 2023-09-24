@@ -1,0 +1,92 @@
+<div class=" relative grid md:flex">
+  <div class=" md:w-3/4 lg:w-4/6  h-screen drop-shadow-2xl relative">
+    <img src="assets/opf2.png" class=" h-full rounded-r-2xl">
+    <div class=" absolute bg-gray-300 bg-opacity-60 w-full sm:w-auto  top-28   lg:right-16 lg:left-16 md:right-8 md:left-8 bottom-16 rounded-md">
+      <div>
+        <p class=" font-oswald font-bold text-3xl mx-8 mt-6">Atlas Bank</p>
+        <div class=" bg-orange-500 w-16 h-1 mt-4 mx-8"></div>
+        <p class="font-bold font-poppins text-xl mt-10 text-center">Banking is necessary, banks are not.</p>
+        <p class=" font-oswald text-gray-700 font-bold text-sm mt-6 text-center">10 Million+ people have joined our network.</p>
+        <p class=" font-oswald text-gray-700 font-bold text-sm text-center">Thank you for your trust</p>
+        <p class="  font-oswald mt-44 mx-8">Don't have an account ?</p>
+        <p class=" font-bold font-oswald mt-2 mx-8 text-lg hover:cursor-pointer" routerLink="/registration">Sign Up</p>
+      </div>
+      </div>
+
+  </div>
+  <div class="  w-screen h-screen">
+    <div class=" ">
+      <p class=" font-oswald font-bold text-5xl mt-24 mx-12 md:mx-24 lg:mx-28">Sign In</p>
+
+      <div class=" mt-12 mx-12 flex items-center gap-4 md:mx-24 lg:mx-32" *ngIf="errorMsg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-red-600">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>
+        <p class=" text-red-600 font-bold font-poppins text-2xl">Invalid credentiels !</p>
+      </div>
+
+      <div class=" mt-12 mx-12 md:mx-24 lg:mx-32">
+        <form class=" grid drop-shadow-xl "
+              [class]="errorMsg==true?'border-2 border-red-600 rounded-lg p-4':''"
+              [formGroup]="loginForm" (ngSubmit)="submitForm()">
+          <label class=" font-oswald font-bold text-gray-600">UserName</label>
+          <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm"
+          placeholder="Enter your username" formControlName="username"
+          >
+          <div *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched && loginForm.controls.username.errors">
+            <div *ngIf="loginForm.controls.username.errors['required']">
+              <p class=" text-red-600 font-bold font-oswald mt-1">The username is required !</p>
+            </div>
+          </div>
+
+          <label class="font-oswald font-bold text-gray-600 mt-6">Password</label>
+          <input [type]="showPsswd==true?'text':'password'"
+                 class=" mt-2 rounded-lg py-2 border-2 border-gray-200 px-2 font-poppins text-sm"
+          placeholder="Enter password" formControlName="password"
+          >
+          <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched && loginForm.controls.password.errors">
+            <div *ngIf="loginForm.controls.password.errors['required']">
+              <p class=" text-red-600 font-bold font-oswald mt-1">The email is required !</p>
+            </div>
+          </div>
+
+
+          <div class=" mt-6 flex items-center ">
+            <input type="checkbox" (click)="showPsswd =!showPsswd">
+            <label  class="font-oswald text-sm font-bold text-gray-600 mx-2 ">Show password</label>
+          </div>
+
+
+          <div class=" flex justify-center mt-12">
+            <button class=" bg-orange-500 px-6 py-2 rounded-full text-white font-bold font-poppins"
+            [disabled]="!loginForm.valid"
+            >Sign In</button>
+          </div>
+
+          <div class=" flex justify-center mt-12">
+            <p class=" text-gray-600 font-poppins font-bold text-sm hover:cursor-pointer" routerLink="/forgot">Forgot password ?</p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class=" absolute top-0 h-full w-full " *ngIf="notActivated">
+    <div class=" flex justify-end">
+      <div class=" p-4 mx-4 bg-red-600 mt-12 rounded-lg drop-shadow-2xl flex items-center gap-4">
+        <div class="">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-white hover:cursor-pointer" (click)="notActivated = false">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div class=" ">
+          <p class="text-white text-center font-bold font-poppins text-xl">InActive Account.</p>
+          <p class="text-white text-center ">Your account is currently in the process of activation. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

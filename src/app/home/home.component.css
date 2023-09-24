@@ -1,0 +1,7 @@
+
+#background-video {
+  width: 100vw;
+  height: 80%;
+  object-fit: cover;
+  z-index: -1;
+}

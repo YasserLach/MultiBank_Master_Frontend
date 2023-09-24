@@ -1,0 +1,45 @@
+<header class=" lg:fixed z-10 w-full ">
+  <nav class=" bg-white bg-scroll bg-opacity-90 grid gap-4 lg:flex lg:justify-around items-center py-3 ">
+    <div class=" flex justify-around">
+      <p class=" font-dancing text-3xl font-bold hover:cursor-pointer" routerLink="/">Atlas Bank</p>
+    </div>
+
+    <div *ngIf="authService.roles =='ROLE_ADMIN'">
+      <ul class=" flex justify-center gap-4">
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/admin">Dashboard</li>
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/admin/customers">Customers</li>
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/admin/accounts">Accounts</li>
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/admin/inactive">Non-Active Users</li>
+      </ul>
+    </div>
+
+    <div *ngIf="authService.roles =='ROLE_USER'">
+      <ul class=" flex justify-center gap-4">
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/user">Home</li>
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/user/accounts">Accounts</li>
+        <li class=" font-poppins font-semibold hover:cursor-pointer hover:text-blue-200 duration-500" routerLink="/user/profile">Profile</li>
+      </ul>
+    </div>
+
+
+
+    <div class=" flex justify-center items-center gap-2 ">
+      <input type="text" placeholder="Search" class=" outline-none border-2 rounded-md px-1 font-poppins border-blue-200 drop-shadow-xl " [(ngModel)]="this.appState.dataState.keyword">
+      <div class=" bg-white py-2 px-2 rounded-full drop-shadow-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" (click)="searchByKeyword(this.appState.dataState.keyword)"
+             class="w-6 h-6 hover:cursor-pointer hover:text-gray-200 duration-200 text-blue-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class=" flex justify-center gap-4 items-center " (click)="handleLogOut()">
+      <button class="bg-blue-200 text-white rounded-md flex gap-2 py-1 px-2 drop-shadow-xl  hover:shadow-blue-300 hover:text-shadow hover:shadow-md duration-200 font-poppins font-bold">
+        <p>Logout</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>

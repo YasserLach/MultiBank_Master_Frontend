@@ -1,0 +1,31 @@
+<div class=" ">
+  <div class=" grid gap-12 sm:grid-cols-4">
+    <!--col1-->
+    <div class=" flex justify-center items-center">
+      <div>
+        <p class="font-bold text-gray-600 text-2xl text-center">Atlas Bank</p>
+        <ul class=" flex justify-center">
+          <li *ngFor="let sg of svgs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(87, 83, 83);transform: ;msFilter:;"><path [attr.d]="sg.path1"></path><circle [attr.cx]="sg.cx" [attr.cy]="sg.cy" [attr.r]="sg.r"></circle><path [attr.d]="sg.path2"></path></svg>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="" *ngFor="let elemnt of elements">
+      <p class="font-bold text-gray-600 text-lg text-center">{{elemnt.title}}</p>
+      <div class=" flex justify-center">
+        <ul>
+          <li class=" text-sm mt-1 font-poppins text-sm" *ngFor="let attr of elemnt.attributes">
+            {{attr}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+  <p class=" text-center text-sm mt-2 font-poppins">All rights reserved. Copyright © 2023 Atlas Bank.</p>
+</div>

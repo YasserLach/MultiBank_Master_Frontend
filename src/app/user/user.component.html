@@ -1,0 +1,90 @@
+<div class="">
+  <app-navbar></app-navbar>
+  <div class="bg-white bg-opacity-90 lg:pt-16  mb-12 ">
+      <!-- the bg cover -->
+    <div class=" mt-2 relative  rounded-lg mx-8 drop-shadow-2xl">
+
+      <video autoplay loop muted src="assets/user-bg2.mp4" class="rounded-lg  h-1/2 w-screen"></video>
+      <div class=" absolute  w-full lg:top-1/4 md:top-16 top-12">
+        <div class=" col-span-2">
+          <p class=" text-center font-bold font-dancing text-white lg:text-8xl md:text-7xl text-5xl">Atlas Bank,</p>
+          <p class=" text-center font-oswald text-white mt-2 font-semibold lg:text-5xl px-4 md:text-4xl text-3xl">Let all your bank accounts find their home within a single wallet</p>
+         <div class=" flex justify-center mt-8">
+           <button class=" bg-transparent border-2 border-blue-800 hover:bg-blue-800 duration-600 px-3 py-2 rounded-full text-white font-bold drop-shadow-2xl"><a href="/user#explore">Explor Features</a></button>
+         </div>
+        </div>
+
+        <div class="grid grid-cols-3">
+          <div></div>
+          <div class=" bg-gray-50 bg-opacity-25 lg:mt-24 md:mt-8 mt-2 col-span-3 lg:col-span-1 px-4 lg:py-6 py-2 rounded-md drop-shadow-2xl border-2 border-white">
+            <p class=" text-white font-bold font-poppins text-center">We need banking but we don’t need banks anymore.
+              Do you think someday we can open bank account or ask for loan without physically have to come to the bank?
+              </p>
+            <p class=" text-center font-dancing font-bold mt-2 text-white text-2xl"> " BILL GATES "</p>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class=" bg-gray-50 bg-opacity-25 absolute bottom-0 w-full flex justify-around py-2">
+        <p class=" font-dancing text-white">Atlas Bank</p>
+        <p class=" font-dancing text-white">Atlas Bank</p>
+        <p class=" font-dancing text-white">Atlas Bank</p>
+      </div>
+    </div>
+
+    <div class="  flex justify-center my-24">
+      <div class=" drop-shadow-xl">
+        <p class="font-bold font-oswald lg:text-7xl text-6xl">BANKING IS NECESSARY,</p>
+         <p class=" font-bold font-oswald text-right lg:text-7xl mt-8 text-6xl"> BANKS ARE </p>
+        <p class=" font-bold font-oswald text-right lg:text-7xl mt-8 text-red-600 text-6xl">NOT</p>
+      </div>
+    </div>
+
+    <section id="explore">
+      <div class=" grid lg:grid-cols-2 gap-12 items-center my-14 mx-8">
+        <div class=" ">
+          <video autoplay loop muted  src="assets/payment2.mp4" class="rounded-lg"></video>
+        </div>
+        <div class=" bg-white  lg:mx-8 drop-shadow-2xl px-4 py-8">
+          <p class="text-center font-bold font-oswald text-4xl">Apple Pay feature</p>
+          <p class="  mt-4 font-poppins">Morocco’s CIH Bank announced implementing the Appel Pay feature in its system, a tool to replace physical cards and pay in a safe secure, and private matter.</p>
+          <p class="  mt-2 font-poppins">The bank’s customers now have a safe and practical alternative to using cash or credit cards for transactions thanks to this payment method.</p>
+          <p class="  mt-2 font-poppins">It’s easy to set up Apple Pay. You can get started by simply adding your credit or debit card to the Wallet app on your iPhone. You still receive all the incentives and privileges associated with your card, so you won’t lose out on any hard-earned miles or points.</p>
+        </div>
+      </div>
+
+      <div class=" bg-black mt-8 ">
+        <div class=" flex justify-around">
+          <p class=" text-white font-dancing  lg:text-5xl text-2xl text-center pt-4 ">Atlas bank</p>
+          <p class=" text-white font-dancing  lg:text-5xl text-2xl text-center pt-4 ">Atlas bank</p>
+          <p class=" text-white font-dancing  lg:text-5xl text-2xl text-center pt-4 ">Atlas bank</p>
+          <p class=" text-white font-dancing  lg:text-5xl text-2xl text-center pt-4 ">Atlas bank</p>
+          <p class=" text-white font-dancing  lg:text-5xl text-2xl text-center pt-4 ">Atlas bank</p>
+        </div>
+        <p class=" text-yellow-600 ml-8 font-oswald text-3xl font-bold mt-12 border-b-2 border-white">DISCOVER THE VISA OFFERS</p>
+      <div class="  mx-14 mt-12 pb-12">
+        <div class=" grid lg:grid-cols-3 gap-12">
+          <div class="bg-white lg:w-2/3  lg:mx-14 mx-4 rounded-md px-2 py-2 drop-shadow-2xl" *ngFor="let offre of offres">
+            <img src="{{offre.imgSrc}}" class="rounded-md drop-shadow-xl w-full">
+            <p class="mt-2 font-bold font-oswald text-xl">{{offre.title}}</p>
+            <p class=" font-poppins">{{offre.subTitle}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="  my-32 drop-shadow-2xl">
+        <p class=" text-center font-bold font-oswald lg:text-8xl text-6xl">Trusted By</p>
+        <p class=" text-center font-bold font-poppins mt-12 lg:text-6xl md:text-5xl text-3xl">The China Development Bank (CDB)</p>
+        <p class=" text-center mt-8 font-bold font-dancing text-2xl text-gray-500"> « One Belt, One Road » </p>
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,296 @@
+<div class=" relative  h-screen w-screen grid gap-4 sm:gap-0 sm:grid-cols-2 lg:grid-cols-3">
+
+  <div class="">
+      <div>
+        <p class="font-oswald font-bold text-6xl mx-16 mt-8 drop-shadow-2xl">Sign Up</p>
+        <p class=" border-b-8 border-orange-500 w-24 mx-32 "></p>
+        <div class=" mt-6 mx-4 2xl:mx-6">
+          <form class=" grid drop-shadow-xl" [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+            <!-- Personnal Infos -->
+            <div class=" grid" *ngIf="counter ==1">
+              <label class=" font-oswald font-bold text-gray-600">First Name</label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2  outline-none px-2 font-poppins text-sm  "
+                     placeholder="Enter your FirstName" formControlName="name">
+              <div *ngIf="registrationForm.controls.name.invalid && registrationForm.controls.name.touched && registrationForm.controls.name.errors">
+                <div *ngIf="registrationForm.controls.name.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">First name is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.name.errors['minlength']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Must be at least 3 characters !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.name.errors['pattern']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Invalid first name !</p>
+                </div>
+              </div>
+
+              <label class=" font-oswald font-bold text-gray-600 mt-4">Last Name</label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm  "
+                     placeholder="Enter your LastName" formControlName="lastName">
+              <div *ngIf="registrationForm.controls.lastName.invalid && registrationForm.controls.lastName.touched && registrationForm.controls.lastName.errors">
+                <div *ngIf="registrationForm.controls.lastName.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Last name is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.lastName.errors['minlength']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Must be at least 3 characters !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.lastName.errors['pattern']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Invalid last name !</p>
+                </div>
+              </div>
+
+              <label class=" font-oswald font-bold text-gray-600 mt-4">Phone Number</label>
+              <input type="tel" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your phone number" formControlName="phoneNumber">
+              <div *ngIf="registrationForm.controls.phoneNumber.invalid && registrationForm.controls.phoneNumber.touched && registrationForm.controls.phoneNumber.errors">
+                <div *ngIf="registrationForm.controls.phoneNumber.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Phone number is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.phoneNumber.errors['pattern']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Invalid phoneNumber !</p>
+                </div>
+              </div>
+              <label class=" font-oswald font-bold text-gray-600 mt-4">Age</label>
+              <input type="number" min="0" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm"
+                     placeholder="Enter your age" formControlName="age">
+              <div *ngIf="registrationForm.controls.age.invalid && registrationForm.controls.age.touched && registrationForm.controls.age.errors">
+                <div *ngIf="registrationForm.controls.age.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">age is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.age.errors['pattern']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Invalid age !</p>
+                </div>
+              </div>
+              <label for="sex-select" class=" font-oswald font-bold text-gray-600 mt-4">Sexe</label>
+              <select id="sex-select" class="mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                      formControlName="sexe"
+              >
+                <option value="">--Please choose your sexe --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <div *ngIf="registrationForm.controls.sexe.invalid && registrationForm.controls.sexe.touched && registrationForm.controls.sexe.errors">
+                <div *ngIf="registrationForm.controls.sexe.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">The sexe is required !</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- End of personal infos --->
+
+            <!-- Extra infos -->
+            <div class=" grid" *ngIf="counter==2">
+              <label class=" font-oswald font-bold text-gray-600 flex mt-4 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22 " viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z"></path></svg>
+                Instagram</label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your Instagram" formControlName="instagram">
+              <label class=" font-oswald font-bold text-gray-600 mt-4 flex gap-1 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"></path></svg>
+                Facebook
+              </label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your Facebook" formControlName="facebook">
+
+              <label class=" font-oswald font-bold text-gray-600 mt-4 flex gap-1 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+                TikTok</label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your Tiktok" formControlName="tiktok">
+
+              <label class=" font-oswald font-bold text-gray-600 mt-4 flex gap-1 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+                Localisation</label>
+              <textarea class=" mt-2 rounded-lg py-2 px-0 border-2 border-gray-200 outline-none  font-poppins text-sm "
+                        formControlName="localisation"
+              >
+              </textarea>
+              <div *ngIf="registrationForm.controls.localisation.invalid && registrationForm.controls.localisation.touched && registrationForm.controls.localisation.errors">
+                <div *ngIf="registrationForm.controls.localisation.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">The localisation is required !</p>
+                </div>
+              </div>
+            </div>
+            <!-- End of extra infos -->
+
+
+            <!-- Registration infos -->
+            <div class=" grid" *ngIf="counter ==3">
+              <label class=" font-oswald font-bold text-gray-600">UserName</label>
+              <input type="text" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your UserName" formControlName="userName">
+              <div *ngIf="registrationForm.controls.userName.invalid && registrationForm.controls.userName.touched && registrationForm.controls.userName.errors">
+                <div *ngIf="registrationForm.controls.userName.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">The userName is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.userName.errors['minlength']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Must be at least 5 characters !</p>
+                </div>
+              </div>
+              <label class=" font-oswald font-bold text-gray-600 mt-6">Email</label>
+              <input type="email" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your email" formControlName="email">
+              <div *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.errors">
+                <div *ngIf="registrationForm.controls.email.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">The email is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.email.errors['email']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Invalid email !</p>
+                </div>
+              </div>
+              <label class=" font-oswald font-bold text-gray-600 mt-6">Password</label>
+              <input type="password" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Enter your password" formControlName="password"
+              [class]="registrationForm.controls.password.untouched?'border-gray-200':registrationForm.controls.password.errors != null&&registrationForm.controls.password.errors['minlength']?'border-red-600':'border-green-600'"
+              >
+              <div *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched && registrationForm.controls.password.errors">
+                <div *ngIf="registrationForm.controls.password.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Password is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.password.errors['minlength']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Must be at least 7 characters !</p>
+                </div>
+              </div>
+              <label class=" font-oswald font-bold text-gray-600 mt-6">Confirm Password</label>
+              <input type="password" class=" mt-2 rounded-lg py-2 border-2 border-gray-200 outline-none px-2 font-poppins text-sm "
+                     placeholder="Confirm your password" formControlName="confirmPassword"
+                     [class]="registrationForm.controls.confirmPassword.untouched?'border-gray-200':registrationForm.controls.confirmPassword.errors != null&&registrationForm.controls.confirmPassword.errors['minlength']?'border-red-600':'border-green-600'"
+              >
+              <div *ngIf="registrationForm.controls.confirmPassword.invalid && registrationForm.controls.confirmPassword.touched && registrationForm.controls.confirmPassword.errors">
+                <div *ngIf="registrationForm.controls.confirmPassword.errors['required']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">confirmPassword is required !</p>
+                </div>
+                <div *ngIf="registrationForm.controls.confirmPassword.errors['minlength']">
+                  <p class=" text-red-600 font-bold font-oswald mt-1">Must be at least 7 characters !</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- End of registration infos -->
+            <div class="flex justify-center mt-4 gap-12">
+              <div class=" bg-orange-500 drop-shadow-2xl p-2 rounded-full"
+              [class]="counter==1?'hidden':'block'"
+                   (click)="minusToCounter(counter)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white hover:cursor-pointer">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+              </div>
+              <div class=" bg-orange-500 drop-shadow-2xl p-2 rounded-full"
+              [class]="counter==3?'hidden':'block'"
+                   (click)="addToCounter(counter)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white hover:cursor-pointer">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                </svg>
+              </div>
+            </div>
+
+            <div class=" flex justify-center mt-8"
+            [class]="counter!=3?'hidden':'block'"
+            >
+              <button [disabled]="!registrationForm.valid"
+                class=" bg-orange-500 px-3 py-2 rounded-full text-white font-bold font-poppins drop-shadow-2xl">
+                Sign Up
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+
+      </div>
+  </div>
+  <div class=" relative  lg:col-span-2 drop-shadow-2xl">
+    <img src="assets/registration2.jpg" class=" h-screen w-screen sm:rounded-l-2xl">
+    <div class=" absolute top-0 sm:rounded-l-2xl bg-black bg-opacity-25 w-full h-full"></div>
+    <div class=" absolute bg-white bg-opacity-70 top-4 left-4  lg:top-8 lg:left-8 rounded-md">
+      <p class=" font-bold font-dancing text-3xl lg:text-5xl  px-4 py-1 lg:px-8 lg:py-2 text-gray-600">Atlas bank</p>
+    </div>
+
+    <!-- Personnal infos title -->
+
+    <div class="  absolute top-1/3 w-full" *ngIf="counter ==1">
+      <p class=" font-roboto font-bold text-center text-5xl lg:text-7xl text-white">Personal Informations</p>
+      <div class=" flex justify-center">
+        <div class=" bg-white bg-opacity-70 rounded-md mt-8  px-6 py-2 mx-4 lg:mx-0 lg:px-12 lg:py-4">
+          <p class=" font-poppins font-bold text-gray-600">Kindly complete the form by providing your personal details.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Social Network infos title -->
+
+    <div class="  absolute top-1/3 w-full" *ngIf="counter ==2">
+      <p class=" font-roboto font-bold text-center text-5xl lg:text-7xl text-white">Social Network Information</p>
+      <div class=" flex justify-center">
+        <div class=" bg-white bg-opacity-70 rounded-md mt-8  px-6 py-2 mx-4 lg:mx-0 lg:px-12 lg:py-4">
+          <p class=" font-poppins font-bold text-gray-600">Kindly complete the form by providing your social network details.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Registration infos -->
+    <div class="  absolute top-1/3 w-full" *ngIf="counter ==3">
+      <p class=" font-roboto font-bold text-center text-5xl lg:text-7xl text-white">Registration Information</p>
+      <div class=" flex justify-center">
+        <div class=" bg-white bg-opacity-70 rounded-md mt-8  px-6 py-2 mx-4 lg:mx-0 lg:px-12 lg:py-4">
+          <p class=" font-poppins font-bold text-gray-600">Kindly complete the form by providing your registration details.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-2 lg:bottom-4  right-3 lg:right-8 bg-white bg-opacity-70 lg:px-4 px-3 py-1 lg:py-2 rounded-md">
+      <p class="font-oswald">Already have an account ?</p>
+      <p class=" font-bold font-oswald mt-2 text-center text-lg hover:cursor-pointer" routerLink="/login">Sign In</p>
+    </div>
+  </div>
+</div>
+
+<div class=" absolute top-0 bg-black bg-opacity-50 h-screen  w-screen" *ngIf="errorMsg.length>0">
+  <div class=" flex justify-center">
+    <div class=" bg-white mt-14  rounded-lg">
+      <div class=" flex justify-end" (click)="errorMsg =''">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:cursor-pointer hover:text-gray-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class=" px-12 py-8">
+        <div class=" flex justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-600">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+        </div>
+        <p class=" text-center font-bold font-oswald text-red-600 text-2xl mt-1">Error !</p>
+        <p class=" mt-4 font-oswald font-bold text-2xl">{{errorMsg}}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class=" absolute top-0 bg-gray-400 bg-opacity-70 h-screen w-screen " *ngIf="successMsg">
+  <div class=" flex justify-center">
+    <div class=" bg-white  pb-2 rounded-lg drop-shadow-2xl mt-8">
+      <div class=" flex justify-end pt-1 px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-green-600 hover:cursor-pointer hover:text-gray-400"
+        (click)="navigateSuccess()"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class=" px-10">
+        <p class=" text-green-600 font-bold text-4xl font-oswald text-center pt-8">Your account has been created successfully !</p>
+        <div class=" flex justify-center">
+          <video autoplay loop muted src="assets/success.mp4" class="h-48 w-48"></video>
+        </div>
+        <p class=" text-green-600 font-dancing mt-4 text-center">Atlas bank</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

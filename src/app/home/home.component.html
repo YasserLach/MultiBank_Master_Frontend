@@ -1,0 +1,153 @@
+
+<div class="">
+  <div>
+    <div class="relative flex justify-center">
+      <video id="background-video" autoplay loop muted  class=" brightness-75 ">
+        <source src="assets/bg-home-page.mp4" type="video/mp4">
+      </video>
+
+      <div class=" absolute top-0 mt-7 bg-sky-50 bg-opacity-90   rounded-lg drop-shadow-2xl ">
+        <div class=" flex justify-center items-center py-2">
+          <p class=" ml-4 mr-28  hover:cursor-pointer font-dancing text-2xl ">Atlas Bank</p>
+          <div class=" flex justify-around items-center  mx-4 ">
+            <a href="#about_us" class="no-underline text-black"><p class=" mx-2 hover:cursor-pointer font-poppins font-semibold text-sm">About us</p></a>
+            <a href="#contact_us" class="no-underline text-black"><p class=" mx-2 hover:cursor-pointer font-poppins font-semibold text-sm">Contact us</p></a>
+
+            <p class=" mx-2 hover:cursor-pointer font-poppins font-semibold text-sm text-black" routerLink="/login">Login</p>
+            <p class=" mx-2 hover:cursor-pointer  px-2 py-1 rounded-lg bg-orange-500 text-white font-bold text-sm hover:shadow-md  hover:duration-200 font-poppins hover:text-shadow hover:shadow-white" routerLink="/registration">Sign Up</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="absolute top-0 mt-60">
+        <p class=" text-white font-bold text-7xl text-center font-eduSA">Atlas Bank</p>
+        <p class=" mx-24 text-center mt-14 text-white font-bold font-poppins">The Bank of Africa, formerly known as BMCE Bank of Africa or Moroccan Bank for Foreign Trade, is a Moroccan commercial bank. Founded in 1959 as a public bank, it was privatized in 1995 and later acquired by the financier Othman Benjelloun through the RMA insurance company, which he controls.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <section id="about_us" class="bg-white bg-opacity-90 ">
+    <p class=" text-6xl  mt-14 text-orange-500 mx-9 font-dancing text-shadow shadow-amber-500">About Us</p>
+    <div class="  ring-white ring-offset-2 ring mx-9 my-14 rounded-md drop-shadow-2xl bg-white ">
+      <!-- The caroussel -->
+      <div class="relative group">
+        <div class="rounded-2xl bg-center bg-cover duration-700 ">
+        <img src="{{images[currentIndex].src}}">
+        </div>
+        <!-- left arrow -->
+        <div class="hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[-50%] left-5 text-2xl text-white ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 hover:cursor-pointer" (click)="minusCurrentIndex()" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+          </svg>
+
+        </div>
+        <!-- right arrow -->
+        <div class="hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[-50%] right-5 text-2xl text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 hover:cursor-pointer" (click)="addCurrentIndex()">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </div>
+
+        <!-- the announce -->
+        <div class="grid grid-cols-2 mt-20 items-center">
+
+          <!-- col1 -->
+          <div class="">
+            <p class=" text-6xl font-bold font-eduSA text-orange-500 text-center drop-shadow-xl">Atlas Mobile</p>
+            <p class=" font-bold text-center mt-2 font-poppins">Access your bank account easily and quickly from anywhere you are, using your smartphone or tablet.</p>
+          </div>
+
+          <!-- col2 -->
+          <div class="">
+            <video autoplay loop muted  class=" brightness-100 rounded-3xl">
+              <source src="assets/annouce.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+    </div>
+  </section>
+
+
+  <section id="contact_us" class="bg-white bg-opacity-90 ">
+    <p class=" text-6xl font-bold mt-20 text-orange-500 mx-9 font-dancing text-shadow shadow-amber-500">Contact Us</p>
+    <div class="  ring-white ring-offset-2 ring mx-9 my-14 rounded-md drop-shadow-2xl bg-white">
+      <img src="assets/contact.jpg" class=" h-60 w-screen rounded-md">
+
+      <!-- The formulaire -->
+      <div class=" mt-9 ">
+        <p class="font-bold text-lg text-center font-poppins">Please fill out this form to be contacted again.</p>
+        <p class="font-semibold font-poppins text-center">By completing the form below, you will be connected with an Atlas Bank advisor.</p>
+
+        <div class=" drop-shadow-2xl mt-14 mx-14">
+          <div class="">
+            <form class="  pb-7 ">
+              <div class=" grid grid-cols-2 gap-12">
+                <!-- Col 1 -->
+                <div class="  ">
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">First Name</label>
+                    <input type="text"  placeholder="" class=" py-1 rounded-md border-2 border-orange-100 col-span-2">
+                  </div>
+
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">Email</label>
+                    <input type="email"  placeholder="" class=" py-1 rounded-md border-2 border-orange-100 col-span-2">
+                  </div>
+
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">Subject</label>
+                    <select class="form-select text-sm font-poppins  py-1 rounded-md border-2 border-orange-100 col-span-2" >
+                      <option value="1">Opportunités</option>
+                      <option value="2">Réclamation</option>
+                      <option value="3">Assistance</option>
+                      <option value="3">Etre contacté</option>
+                    </select>
+                  </div>
+
+                </div>
+
+
+                <!-- Col 2 -->
+                <div class="  ">
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">Last Name</label>
+                    <input type="text"  placeholder="" class=" py-1 rounded-md border-2 border-orange-100 col-span-2">
+                  </div>
+
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">Phone number</label>
+                    <input type="text"  placeholder="" class=" py-1 rounded-md border-2 border-orange-100 col-span-2">
+                  </div>
+
+                  <div class=" mb-3 grid grid-cols-4 gap-2 items-center">
+                    <label  class=" font-semibold font-poppins ">Message</label>
+                    <textarea class="rounded-md border-2 border-orange-100 col-span-2"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" flex justify-center">
+                <button class=" bg-orange-500 text-white font-bold py-2 mt-6 px-4 text-lg rounded-md  hover:shadow-md  hover:duration-200 font-eduSA hover:text-shadow hover:shadow-white">Send</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>
+
+
